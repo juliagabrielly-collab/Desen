@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Integrarte - Comunicação Visual</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      background: rgba(0,0,0,0.9) !important;
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+    }
+
+    .navbar-brand {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .nav-link {
+      color: white !important;
+      margin-left: 15px;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: #d1d5db !important;
+    }
+
+    .nav-link::after {
+      content: "";
+      width: 0%;
+      height: 2px;
+      background: white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* HEADER */
+
+    header {
+  min-height: 100vh;
+
+  background-image:
+  linear-gradient(
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)
+  ),
+  url("img/fundo.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: white;
+  padding: 40px;
+}
+    .logo-principal {
+      width: 320px;
+      max-width: 100%;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
+    }
+
+    .titulo {
+      font-size: 70px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .subtitulo {
+      font-size: 24px;
+      color: #d1d5db;
+    }
+
+    .btn-custom {
+      background: white;
+      color: black;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: 0.3s;
+      border: none;
+    }
+
+    .btn-custom:hover {
+      transform: scale(1.05);
+      background: #d4d4d4;
+    }
+
+    /* CAROUSEL */
+
+    .carousel-item img {
+      height: 650px;
+      object-fit: cover;
+      filter: brightness(70%);
+    }
+
+    .carousel-caption {
+      bottom: 25%;
+      background: rgba(0,0,0,0.5);
+      padding: 30px;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+    }
+
+    .carousel-caption h2 {
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    /* SERVIÇOS */
+
+    .servicos {
+      padding: 100px 20px;
+    }
+
+    .titulo-section {
+      font-size: 50px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.8);
+      border: none;
+      border-radius: 25px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: 0.4s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .icone-servico {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .btn-card {
+      border-radius: 30px;
+      padding: 10px 25px;
+    }
+
+    /* ESTATISTICAS */
+
+    .estatisticas {
+      background:
+      linear-gradient(90deg, #000000, #2e2e2e);
+
+      color: white;
+      padding: 100px 20px;
+    }
+
+    .box-estatistica {
+      padding: 50px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .box-estatistica:hover {
+      transform: scale(1.05);
+    }
+
+    .numero {
+      font-size: 60px;
+      font-weight: bold;
+    }
+
+    /* CONTATO */
+
+    .contato {
+      padding: 100px 20px;
+    }
+
+    .form-box {
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .form-control {
+      border-radius: 15px;
+      padding: 15px;
+      border: 1px solid #ddd;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border-color: black;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: black;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    footer img {
+      width: 180px;
+      margin-bottom: 25px;
+    }
+
+    .social a {
+      color: white;
+      font-size: 35px;
+      margin: 0 15px;
+      transition: 0.3s;
+    }
+
+    .social a:hover {
+      color: #9ca3af;
+      transform: translateY(-5px);
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+      <a class="navbar-brand fw-bold" href="#">
+        Integrarte
+      </a>
+
+      <button class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#menu">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Início
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#servicos">
+              Serviços
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contato">
+              Contato
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="container animate__animated animate__fadeInDown">
+
+      <img src="img/logo3.jpg"
+        alt="Logo Integrarte"
+        class="logo-principal">
+
+    
+      <p class="subtitulo mb-5">
+        Comunicação Visual & Gráfica
+      </p>
+
+      <a href="#contato"
+        class="btn btn-custom btn-lg shadow-lg">
+
+        Solicitar Orçamento
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- SERVIÇOS -->
+
+  <section class="servicos" id="servicos">
+
+    <div class="container">
+
+      <div class="text-center mb-5"
+      data-aos="fade-up">
+
+        <h2 class="titulo-section">
+          Nossos Serviços
+        </h2>
+
+        <p class="text-muted fs-5">
+          Soluções completas para empresas e eventos
+        </p>
+
+      </div>
+
+      <div class="row g-4">
+
+        <!-- CARD 1 -->
+
+        <div class="col-lg-4"
+        data-aos="zoom-in">
+
+          <div class="card h-100">
+
+            <img src="img/impressao.jpg"
+              alt="Impressão">
+
+            <div class="card-body text-center p-4">
+
+              <i class="bi bi-printer icone-servico"></i>
+
+              <h3 class="fw-bold">
+                Impressão Digital
+              </h3>
+
+              <p>
+                Cartões, banners, folders e materiais promocionais.
+              </p>
+
+              <button class="btn btn-dark btn-card">
+                Saiba Mais
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="col-lg-4"
+        data-aos="fade-up">
+
+          <div class="card h-100">
+
+            <img src="img/comunicacao.png"
+              alt="Comunicação">
+
+            <div class="card-body text-center p-4">
+
+              <i class="bi bi-easel icone-servico"></i>
+
+              <h3 class="fw-bold">
+                Comunicação Visual
+              </h3>
+
+              <p>
+                Fachadas, placas e adesivos personalizados.
+              </p>
+
+              <button class="btn btn-dark btn-card">
+                Saiba Mais
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="col-lg-4"
+        data-aos="flip-left">
+
+          <div class="card h-100">
+
+            <img src="img/identidade.png"
+              alt="Design">
+
+            <div class="card-body text-center p-4">
+
+              <i class="bi bi-palette icone-servico"></i>
+
+              <h3 class="fw-bold">
+                Design Gráfico
+              </h3>
+
+              <p>
+                Logos, identidade visual e artes profissionais.
+              </p>
+
+              <button class="btn btn-dark btn-card">
+                Saiba Mais
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ESTATISTICAS -->
+
+  <section class="estatisticas">
+
+    <div class="container">
+
+      <div class="row g-4 text-center">
+
+        <div class="col-md-4"
+        data-aos="fade-up">
+
+          <div class="box-estatistica">
+
+            <i class="bi bi-briefcase-fill fs-1"></i>
+
+            <div class="numero">
+              +500
+            </div>
+
+            <p class="fs-5">
+              Projetos Entregues
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4"
+        data-aos="fade-down">
+
+          <div class="box-estatistica">
+
+            <i class="bi bi-people-fill fs-1"></i>
+
+            <div class="numero">
+              +300
+            </div>
+
+            <p class="fs-5">
+              Clientes Satisfeitos
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4"
+        data-aos="fade-up">
+
+          <div class="box-estatistica">
+
+            <i class="bi bi-award-fill fs-1"></i>
+
+            <div class="numero">
+              10+
+            </div>
+
+            <p class="fs-5">
+              Anos de Experiência
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTATO -->
+
+  <section class="contato" id="contato">
+
+    <div class="container">
+
+      <div class="row align-items-center">
+
+        <div class="col-lg-5 mb-5"
+        data-aos="fade-right">
+
+          <h2 class="titulo-section">
+            Entre em Contato
+          </h2>
+
+          <p class="fs-5 text-muted">
+            Solicite um orçamento sem compromisso.
+          </p>
+
+          <p class="fs-5">
+            <i class="bi bi-telephone-fill"></i>
+            (34) 99946-0605
+          </p>
+
+          <p class="fs-5">
+            <i class="bi bi-envelope-fill"></i>
+            integrarte@outlook.com
+          </p>
+
+        </div>
+
+        <div class="col-lg-7"
+        data-aos="fade-left">
+
+          <div class="form-box">
+
+            <form>
+
+              <div class="mb-3">
+
+                <input type="text"
+                  class="form-control form-control-lg"
+                  placeholder="Seu nome">
+
+              </div>
+
+              <div class="mb-3">
+
+                <input type="email"
+                  class="form-control form-control-lg"
+                  placeholder="Seu e-mail">
+
+              </div>
+
+              <div class="mb-3">
+
+                <textarea class="form-control form-control-lg"
+                  rows="5"
+                  placeholder="Digite sua mensagem"></textarea>
+
+              </div>
+
+              <button class="btn btn-dark btn-lg w-100 rounded-pill">
+
+                Enviar Mensagem
+
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <img src="img/logo3.jpg"
+      alt="Logo">
+
+    <div class="social mb-4">
+
+      <a href="https://www.instagram.com/integrartecomunic.visual/"
+        target="_blank">
+
+        <i class="bi bi-instagram"></i>
+
+      </a>
+
+      <a href="https://www.facebook.com/integrartecomunicacaovisual/?locale=pt_BR"
+        target="_blank">
+
+        <i class="bi bi-facebook"></i>
+
+      </a>
+
+      <a href="https://wa.me/5534999460605"
+        target="_blank">
+
+        <i class="bi bi-whatsapp"></i>
+
+      </a>
+
+    </div>
+
+    <p class="text-secondary">
+      © 2026 Integrarte - Comunicação Visual
+    </p>
+
+  </footer>
+
+  <!-- Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS -->
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+
+    AOS.init({
+      duration: 1200,
+      once: true
+    });
+
+  </script>
+
+</body>
+
+</html>
